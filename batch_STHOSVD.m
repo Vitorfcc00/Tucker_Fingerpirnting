@@ -1,12 +1,12 @@
-%% Batch example ST-HOSVD (Carvalho et al., AppliedSciences 2025)
-%% Vitor Carvalho, Purdue University
-%% PLEASE CITE US!
+% Batch example ST-HOSVD (Carvalho et al., AppliedSciences 2025)
+% Vitor Carvalho, Purdue University
+% PLEASE CITE US!
 % If you are using this code for your research, please kindly cite us:
 % Functional Connectome Fingerprinting Through Tucker Tensor Decomposition.
 % Carvalho, V.; Liu, M.; Harezlak, J.; Estrada Gómez, A.M.; Goñi, J. 
 % https://www.mdpi.com/2076-3417/15/9/4821
 %
-%% IMPORTANT: TensorToolbox IS NEEDED!
+% IMPORTANT: TensorToolbox IS NEEDED!
 % Please download TensorToolbox
 % https://gitlab.com/tensors/tensor_toolbox/-/releases/v3.5
 
@@ -29,7 +29,7 @@ mr_task_rt_hosvd = zeros(numTasks, numParc, numSes);
 mr_task_tr_hosvd = zeros(numTasks, numParc, numSes);
 
 
-%% Within-Condition ST-HOSVD 
+% Within-Condition ST-HOSVD 
 for task=1:numTasks
     task_t = load(sprintf('%s_%d_test.mat',task_labels{task},numSubjs));
     task_r = load(sprintf('%s_%d_retest.mat',task_labels{task},numSubjs));
@@ -80,7 +80,7 @@ for task=1:numTasks
     avg_mr_task_414(task,:,:) = (mr_task_tr_hosvd(task,:,:) + mr_task_rt_hosvd(task,:,:))./2;
 end
 
-%% Plot EMOTION and REST Plots (Figure 3)
+% Plot EMOTION and REST Plots (Figure 3)
 colors = distinguishable_colors(8);
 
 for i = 1:length(task_labels)
@@ -107,7 +107,7 @@ for i = 1:length(task_labels)
 end
 
 
-%% Between-Condition Plot With Full Resting State Scanning Length
+% Between-Condition Plot With Full Resting State Scanning Length
 task_labels = {'EMOTION'}; 
 
 rest_t = load("REST_426_test.mat");
@@ -178,7 +178,7 @@ for task=1:numTasks
     avg_mr_rest_task(task,:,:) = (mr_rest_tr(task,:,:) + mr_rest_rt(task,:,:))./2;
 end
 
-%% Produce Rest-Emotion Plot (Figure 5)
+% Produce Rest-Emotion Plot (Figure 5)
 color_lines = {'blue', 'red', 'green', 'black', 'magenta'};
 for i = 1:length(task_labels)
     figure; 
@@ -204,7 +204,7 @@ end
 
 
 
-%% Comparison between different time point sampling strategies
+% Comparison between different time point sampling strategies
 numSubjs = 426;
 task_label = 'EMOTION';
 
@@ -260,7 +260,7 @@ for j=ranks_ses
     end
 end
 
-%% Produce the first plot (REST-EMOTION) from Figure 7A and 7B.  
+% Produce the first plot (REST-EMOTION) from Figure 7A and 7B.  
 session_ranks = {'50','100','150','200','250','300','350','400','426'};
 
 for j = 1:numSamps
@@ -274,7 +274,3 @@ for j = 1:numSamps
     ylabel("Matching Rate"); xlabel("Participant Rank"); ylim([0, 1]);
     title(sprintf('REST - %s', task_label));
 end
-
-
-
-
