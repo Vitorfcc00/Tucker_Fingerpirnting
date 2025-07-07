@@ -142,7 +142,7 @@ for task=1:numTasks
         for j = ranks_ses
             count_ses = count_ses + 1;
 
-            %% Using Rest Test Estimate Task Retest
+            % Using Rest Test Estimate Task Retest
             % Tucker of Y1: Y1 ~= G x P1 x P1 x S1 
             decomp_rest_test = hosvd(Y_rest_t, norm(Y_rest_t), "ranks", [i,i,j]);
         
@@ -157,7 +157,7 @@ for task=1:numTasks
             ident_mat = corr(decomp_rest_test.U{3}', double(S_est_tr)');
             [~, ~, mr_rest_tr(task,count_parc,count_ses)] = f_compute_id_metrics(ident_mat);
 
-            %% Using Rest Retest Estimate Task Test
+            % Using Rest Retest Estimate Task Test
             % Tucker of X: X ~= G x A x B x C 
             decomp_rest_retest = hosvd(Y_rest_r, norm(Y_rest_r), "ranks", [i,i,j]);
         
@@ -240,7 +240,7 @@ for j=ranks_ses
         for str=sampling_strats
             count2 = count2 + 1;
             
-            %% Using Rest Retest estimate Task Test
+            % Using Rest Retest estimate Task Test
             FCs_retest = compute_random_tps_FCs(rest_ts_r, numSubjs, parc, task_length, str);
 
             tens_rest_retest_FCs = tensor(FCs_retest);
