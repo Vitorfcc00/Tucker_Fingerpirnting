@@ -12,7 +12,7 @@ function FC_arr = compute_random_tps_FCs(cond, num_subjs, parc, task_len, str)
         error('Erorr! Invalid sampling choice of time points.')
     end
 
-    %% Extract the points from RS TS
+    % Extract the points from RS TS
     for i = 1:num_subjs
         FC_arr(:,:,i) = corr(cond.ts{i}(sample_pts,:));
     end
