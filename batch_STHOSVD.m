@@ -10,11 +10,10 @@
 % Please download TensorToolbox
 % https://gitlab.com/tensors/tensor_toolbox/-/releases/v3.5
 
-%% Initialize environment
-addpath('C:\\Users\\vitor\\OneDrive\\Documents\\MATLAB\\tensor_toolbox-v3.5\\tensor_toolbox-v3.5') % add path to tensor toolbox
-addpath('C:\\Users\\vitor\\Box\\Estrada_Goñi_Collaboration\\Vitor_Files\\MATLAB_Package_STHOSVD') %add path to current directory
+% Initialize environment
+addpath(...) % add path to tensor toolbox
 
-task_labels = {'EMOTION', 'REST'}; %tasks in ascending order of scanning length
+task_labels = {'EMOTION', 'REST'}; % tasks in ascending order of scanning length
 ranks_ses = [50,100,150,200,250,300,350,400,426];
 ranks_parc = [100, 200, 300, 400, 414];
 numTasks = numel(task_labels);
